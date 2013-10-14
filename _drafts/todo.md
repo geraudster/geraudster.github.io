@@ -11,4 +11,6 @@ En vrac:
 
 * Pig + Données météo américaines
 * Clojure + EJB3
+* Knime & kaggle
+
 
