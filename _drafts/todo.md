@@ -12,5 +12,9 @@ En vrac:
 * Pig + Données météo américaines
 * Clojure + EJB3
 * Knime & kaggle
-
+* Jekyll : 
+** Date de mise à jour des post
+** Tags
+** Commentaires Disqus
+** Coloration syntaxique
 

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Utiliser Jekyll pour blogguer sur Github
+tags: jekyll
+comments: true
 ---
 
 Github.io permet d'héberger des pages gratuitement à partir d'un repository github.
@@ -46,6 +48,8 @@ Pré-requis : ruby
 
 Ensuite :
 
+    export GEM_HOME=~/rubygems/gems
+    export PATH=$GEM_HOME/bin:$PATH
     gem install jekyll
 
 Voilà, c'est tout :)
@@ -116,4 +120,8 @@ AAAA-MM-JJ-\[nom de l'article\].\[format\]
 * ``_layouts`` : contient les modèles de mise en page
 * tout le reste (javascripts, stylesheets, images...) est copié tel quel dans le répertoire
 ``_site``
+
+# Que mettre dans son .gitignore ?
+
+En gros, tout ce qui est généré par Jekyll, donc le répertoire ``_site``.
 
