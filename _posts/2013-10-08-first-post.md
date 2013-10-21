@@ -3,6 +3,7 @@ layout: post
 title: Utiliser Jekyll pour blogguer sur Github
 tags: jekyll
 comments: true
+tracking: true
 ---
 
 Github.io permet d'héberger des pages gratuitement à partir d'un repository github.
