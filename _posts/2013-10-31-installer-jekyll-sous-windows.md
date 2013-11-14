@@ -4,6 +4,7 @@ title: Installer Jekyll sous Windows
 tags: jekyll,windows
 comments: true
 tracking: true
+share: true
 ---
 
 Après l'install facile sous Linux, voici la version un peu plus compliquée pour Windows.

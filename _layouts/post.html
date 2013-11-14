@@ -12,6 +12,13 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    
+    {% if page.share %}
+    <script type="text/javascript">var switchTo5x=true;</script>
+	<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+	<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+    {% endif %}
+
     <title>System.out by geraudster</title>
   </head>
 
@@ -76,6 +83,14 @@
   ga('create', 'UA-45020499-1', 'geraudster.github.io');
   ga('send', 'pageview');
 
+</script>
+{% endif %}
+
+{% if page.share %}
+<script type="text/javascript">stLight.options({publisher: "e355646d-1b88-4292-860b-33d6c7969c7c", doNotHash: true, doNotCopy: true, hashAddressBar: false});</script>
+<script>
+var options={ "publisher": "e355646d-1b88-4292-860b-33d6c7969c7c", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "twitter", "linkedin", "viadeo", "identi", "reddit", "yammer", "email", "sharethis"]}};
+var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
 </script>
 {% endif %}
     </body>
