@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Installer Jekyll sous Windows
-tags: jekyll,windows
+tags: jekyll windows
 comments: true
 tracking: true
 share: true

@@ -1,38 +1,63 @@
 ---
 layout: post
 title: Créer une box CentOS pour Vagrant
-tags: centos,vm,vagrant
+tags: centos vm vagrant devops
 comments: true
 tracking: true
 share: true
 ---
 
-Inspiré de https://github.com/okfn/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box
+# Principe
 
-# Pré-requis
+[Vagrant](http://vagrantup.com) est un outil facilitant la gestion d'environnements virtualisés.
+À partir de *boxes* (qui sont des images de VMs pré-configurées), Vagrant offre la possibilité 
+de démarrer puis de personnaliser ses VMs.
 
-1. Installer VirtualBox
-2. Installer Vagrant
+L'exemple de base pour récupérer une box Ubuntu :
 
-# Installation de CentOS sur la VM
+	mkdir test_vm
+	cd test_vm
+	vagrant init precise32 http://files.vagrantup.com/precise32.box # crée un fichier de conf VagrantFile dans le répertoire courant
+	vagrant up # démarre la VM
+	vagrant ssh # connexion à la VM via... ssh
+	
+Par la suite, il sera possible de modifier le fichier VagrantFile pour personnaliser la VM (par le lancement de script shell par exemple).
+Cela fera l'objet d'un prochain post :)
 
-0. Récupération de l'iso netinstall
-1. Configurer la VM
-2. Booter sur l'iso,
-	- Url du mirroir : http://mirror.centos.org/centos-6/6/os/x86_64/
-	- hostname = vagrant-centos64
-	- mot de passe root = vagrant
-	- Sélectionner le type d'installation "Minimal Server"
-3. Redémarrer après l'installation
-4. Se connecter en root et mettre à jour le système
+Pour la suite de cet article, nous allons voir comment créer notre propre box, basée sur [CentOS](http://www.centos.org) 6.4.
+
+ 
+# Avant de commencer
+
+1. Installer VirtualBox (version 4.3.2) et l'extension pack (nécessaire pour l'USB)
+2. Installer Vagrant (version 1.5.3)
+
+# Installation de CentOS 6.4 sur la VM
+
+## Installation de l'OS
+
+* Récupération de l'iso netinstall depuis [http://mirror.ovh.net/ftp.centos.org/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso](http://mirror.ovh.net/ftp.centos.org/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso)
+* Créer une nouvelle VM depuis VirtualBox (Linux, Redhat 64 bit, 2Go RAM)
+* Booter sur l'iso, et utiliser les paramètres suivants
+	* Url du mirroir : http://mirror.centos.org/centos-6/6/os/x86_64/
+	* hostname = vagrant-centos64
+	* mot de passe root = vagrant
+	* Sélectionner le type d'installation "Minimal Server"
+* Redémarrer après l'installation
+* Se connecter en root et mettre à jour le système :
 {% highlight console %}
 root# yum update -y
 {% endhighlight %}
-5. Redirection des ports
+
+## Configuration post-installation
+
+* Configurer la redirection des ports depuis VirtualBox :
 ![](/images/vagrant/redirection_rule_vbox.png)
-6. Il est alors possible de se connecter via Putty/SSH au port 2222:
+
+* Il est alors possible de se connecter via Putty/SSH au port 2222 :
 ![](/images/vagrant/login_ssh.png)
-7. Création de l'utilisateur vagrant (mot de passe = vagrant)
+
+* Création de l'utilisateur vagrant (mot de passe = vagrant) :
 {% highlight console %}
 [root@vagrant-centos64 ~]# adduser vagrant
 [root@vagrant-centos64 ~]# ls /home
@@ -47,7 +72,8 @@ BAD PASSWORD: is too simple
 Retype new password:
 passwd: all authentication tokens updated successfully.
 {% endhighlight %}
-8. Configuration des sudoers
+
+* Configuration des sudoers :
 {% highlight console %}
 # visudo -f /etc/sudoers.d/vagrantadmin
 	
@@ -55,11 +81,13 @@ Defaults   env_keep += "SSH_AUTH_SOCK"
 
 vagrant ALL=NOPASSWD: ALL
 {% endhighlight %}
-9. Mettre en commentaire la ligne requiretty dans le fichier sudo :
+
+* Mettre en commentaire la ligne requiretty dans le fichier sudo :
 {% highlight console %}
 # visudo
 {% endhighlight %}
-9. Test de sudo avec le user vagrant
+
+* Test de sudo avec le user vagrant :
 {% highlight console %}
 [vagrant@vagrant-centos64 ~]$ sudo -l
 Matching Defaults entries for vagrant on this host:
@@ -76,7 +104,8 @@ User vagrant may run the following commands on this host:
 [vagrant@vagrant-centos64 ~]$ sudo ls
 
 {% endhighlight %}
-8. Ajout de la clé vagrant
+
+* Ajout de la clé vagrant (pour la connexion avec la command vagrant ssh) :
 {% highlight console %}
 [vagrant@vagrant-centos64 ~]$ mkdir ~/.ssh
 [vagrant@vagrant-centos64 ~]$ curl -k https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub > .ssh/authorized_keys
@@ -86,11 +115,13 @@ User vagrant may run the following commands on this host:
 [vagrant@vagrant-centos64 ~]$ chmod 0700 .ssh
 [vagrant@vagrant-centos64 ~]$ chmod 0600 .ssh/authorized_keys
 {% endhighlight %}
-9. Nettoyage des paquets
+
+* Nettoyage des paquets :
 {% highlight console %}
 [vagrant@vagrant-centos64 ~]$ sudo yum clean all
 {% endhighlight %}
-10. Installer les extensions VirtualBox, depuis Périphériques -> Installer les Additions invités...
+
+* Installer les extensions VirtualBox, depuis Périphériques -> Installer les Additions invités... :
 {% highlight console %}
 [vagrant@vagrant-centos64 ~]$ sudo mkdir /mnt/cdrom
 [vagrant@vagrant-centos64 ~]$ sudo mount /dev/cdrom /mnt/cdrom
@@ -98,7 +129,7 @@ mount: block device /dev/sr0 is write-protected, mounting read-only
 [vagrant@vagrant-centos64 ~]$ sudo sh /mnt/cdrom/VBoxLinuxAdditions.run
 {% endhighlight %}
 
-Éteindre la VM.
+* Éteindre la VM.
 
 ## En cas de problèmes
 
@@ -107,6 +138,12 @@ cela peut venir du fait que le mirroir n'est plus disponible (ou n'est pas assez
 relancer l'installation avec une nouveau mirroir (à noter que le redémarrage est obligatoire...)
 
 # Création de la box
+
+Une box est en fait une archive contenant :
+* un export de VM au format VirtualBox
+* un fichier metadata.json indiquant le *provider* utilisé (ici VirtualBox)
+
+On utilise la commande *vagrant package*, qui permet de créer l'archive au bon format : 
 
 {% highlight console %}
 > vagrant package --output centos64-64.box --base "Centos 6.4 box"
@@ -119,6 +156,8 @@ relancer l'installation avec une nouveau mirroir (à noter que le redémarrage e
 
 # Utilisation de la box
 
+Avant d'utilier la box, il faut l'enregistrer dans la liste des box disponible :
+
 {% highlight console %}
 > vagrant box add centos64-64 centos64-64.box
 Downloading or copying the box...
@@ -126,10 +165,16 @@ Extracting box...ate: 29.4M/s, Estimated time remaining: --:--:--)
 Successfully added box 'centos64-64' with provider 'virtualbox'!
 {% endhighlight %}
 
-Démarrage :
+Ensuite, il ne reste plus qu'à démarrer :
 
 	mkdir test_vm
 	cd test_vm
 	vagrant init centos64-64
 	vagrant up
 	vagrant ssh
+
+# Quelques liens
+
+* Inspiré de [cet article](https://github.com/okfn/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box)
+* [www.vagrantup.com](http://www.vagrantup.com)
+
