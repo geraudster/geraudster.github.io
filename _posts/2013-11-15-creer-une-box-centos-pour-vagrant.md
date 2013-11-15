@@ -98,7 +98,7 @@ Matching Defaults entries for vagrant on this host:
     LC_NAME LC_NUMERIC LC_PAPER LC_TELEPHONE", env_keep+="LC_TIME LC_ALL
     LANGUAGE LINGUAS _XKB_CHARSET XAUTHORITY",
     secure_path=/sbin\:/bin\:/usr/sbin\:/usr/bin, env_keep+=SSH_AUTH_SOCK
-
+\
 User vagrant may run the following commands on this host:
     (root) NOPASSWD: ALL
 [vagrant@vagrant-centos64 ~]$ sudo ls
