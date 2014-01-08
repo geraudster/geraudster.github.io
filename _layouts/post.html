@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+	  <meta name="description" content="{{ page.excerpt | strip_html }}">
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 	<link rel="icon" href="/images/favicon.ico" />
@@ -19,7 +20,7 @@
 	<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
     {% endif %}
 
-    <title>System.out by geraudster</title>
+    <title>System.out by geraudster - {{ page.title }}</title>
   </head>
 
   <body>
