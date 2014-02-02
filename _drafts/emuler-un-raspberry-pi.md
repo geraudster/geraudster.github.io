@@ -7,7 +7,9 @@ tracking: true
 share: true
 ---
 
-# Etapes
+Emuler un processeur ARM sur une archi x86 sous Linux, c'est possible ! Voici comment faire.
+
+# Les étapes
 
 Tout d'abord, il faut installer qemu en version 1.5 minimum (sinon risque de bugs, voir à la fin de ce post).
 
@@ -66,4 +68,11 @@ L'installation d'une version plus récente de qemu (1.5) a permis de résoudre l
 * http://xecdesign.com/qemu-emulating-raspberry-pi-the-easy-way/
 * http://www.soslug.org/wiki/raspberry_pi_emulation
 
+# Installation d'un environnement de cross-compilation
+
+L'étape d'après consistera à voir comment compiler une application pour architecture ARM à partir d'un Linux.
+
+	git clone git://github.com/raspberrypi/tools.git
+	
+La suite au prochain numéro !
 
