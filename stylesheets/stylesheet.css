@@ -347,6 +347,14 @@ header .intro {
 nav {
 	text-align: right;
 }
+
+.right {
+	position: absolute;
+	right: 50px;
+	top: 200px;
+	width: 150px;
+}
+
 /* #Media Queries
 ================================================== */
 
