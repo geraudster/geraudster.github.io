@@ -3,6 +3,9 @@
 
 * https://wiki.debian.org/openvpn%20for%20server%20and%20client
 * https://www.digitalocean.com/community/articles/how-to-setup-and-configure-an-openvpn-server-on-debian-6
+* https://www.digitalocean.com/community/articles/how-to-setup-and-configure-an-openvpn-server-on-centos-6
+* Comparatif PPTP, L2TP, VPN : https://www.bestvpn.com/blog/4147/pptp-vs-l2tp-vs-openvpn-vs-sstp/
+* http://doc.ubuntu-fr.org/openvpn
 
 sudo aptitude install openvpn udev easy-rsa
 
