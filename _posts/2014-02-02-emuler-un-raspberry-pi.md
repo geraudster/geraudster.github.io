@@ -9,7 +9,7 @@ share: true
 
 Emuler un processeur ARM sur une archi x86 sous Linux, c'est possible ! Voici comment faire.
 
-# Les étapes
+## Les étapes
 
 Tout d'abord, il faut installer qemu en version 1.5 minimum (sinon risque de bugs, voir à la fin de ce post).
 
@@ -25,7 +25,7 @@ Ensuite, on prépare l'environnement
 	cd vm/raspbian
 	unzip 2013-12-20-wheezy-raspbian.zip
 
-# Premier lancement de qemu
+## Premier lancement de qemu
 
 Il y a un peu de configuration afin de faire fonctionner l'image. On démarre donc d'abord qemu sur l'image raspbian en exécutant un shell (option init=/bin/bash):
 
@@ -41,7 +41,7 @@ Sauvegarder puis arrêter qemu:
 
 ou Ctrl-D
 
-# Véritable démarrage de Raspbian
+## Véritable démarrage de Raspbian
 
 On peut ensuite relancer qemu sans l'option init :
 
@@ -52,7 +52,7 @@ Attendre ensuite patiemment le démarrage... L'écran de config de raspbian devr
 ![](/images/qemu-raspi/resultat.png)
 
 
-# Problèmes rencontrés
+## Problèmes rencontrés
 
 Sous Ubuntu 12.04, avec qemu 1.0 installé par :
 	sudo apt-get install qemu-system qemu-user qemu-kvm-extras
@@ -63,12 +63,12 @@ Le lancement de qemu donne des erreurs sur l'accès SCSI :
 
 L'installation d'une version plus récente de qemu (1.5) a permis de résoudre le problème.
 
-# Liens
+## Liens
 
 * http://xecdesign.com/qemu-emulating-raspberry-pi-the-easy-way/
 * http://www.soslug.org/wiki/raspberry_pi_emulation
 
-# Installation d'un environnement de cross-compilation
+## Installation d'un environnement de cross-compilation
 
 L'étape d'après consistera à voir comment compiler une application pour architecture ARM à partir d'un Linux.
 

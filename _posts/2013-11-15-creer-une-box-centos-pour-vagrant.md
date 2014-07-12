@@ -11,7 +11,7 @@ share: true
 À partir de *boxes* (qui sont des images de VMs pré-configurées), Vagrant offre la possibilité 
 de démarrer puis de personnaliser ses VMs.
 
-# Principe
+## Principe
 
 L'exemple de base pour récupérer une box Ubuntu :
 
@@ -27,14 +27,14 @@ Cela fera l'objet d'un prochain post :)
 Pour la suite de cet article, nous allons voir comment créer notre propre box, basée sur [CentOS](http://www.centos.org) 6.4.
 
  
-# Avant de commencer
+## Avant de commencer
 
 1. Installer VirtualBox (version 4.3.2) et l'extension pack (nécessaire pour l'USB)
 2. Installer Vagrant (version 1.5.3)
 
-# Installation de CentOS 6.4 sur la VM
+## Installation de CentOS 6.4 sur la VM
 
-## Installation de l'OS
+### Installation de l'OS
 
 * Récupération de l'iso netinstall depuis [http://mirror.ovh.net/ftp.centos.org/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso](http://mirror.ovh.net/ftp.centos.org/6.4/isos/x86_64/CentOS-6.4-x86_64-netinstall.iso)
 * Créer une nouvelle VM depuis VirtualBox (Linux, Redhat 64 bit, 2Go RAM)
@@ -49,7 +49,7 @@ Pour la suite de cet article, nous allons voir comment créer notre propre box, 
 root# yum update -y
 {% endhighlight %}
 
-## Configuration post-installation
+### Configuration post-installation
 
 * Configurer la redirection des ports depuis VirtualBox :
 ![](/images/vagrant/redirection_rule_vbox.png)
@@ -75,7 +75,7 @@ passwd: all authentication tokens updated successfully.
 
 * Configuration des sudoers :
 {% highlight console %}
-# visudo -f /etc/sudoers.d/vagrantadmin
+## visudo -f /etc/sudoers.d/vagrantadmin
 	
 Defaults   env_keep += "SSH_AUTH_SOCK"
 
@@ -84,7 +84,7 @@ vagrant ALL=NOPASSWD: ALL
 
 * Mettre en commentaire la ligne requiretty dans le fichier sudo :
 {% highlight console %}
-# visudo
+## visudo
 {% endhighlight %}
 
 * Test de sudo avec le user vagrant :
@@ -131,13 +131,13 @@ mount: block device /dev/sr0 is write-protected, mounting read-only
 
 * Éteindre la VM.
 
-## En cas de problèmes
+### En cas de problèmes
 
 Lors de l'installation par le réseau de Centos, s'il bloque sur l'installation d'un paquet
 cela peut venir du fait que le mirroir n'est plus disponible (ou n'est pas assez rapide). Il faut alors
 relancer l'installation avec une nouveau mirroir (à noter que le redémarrage est obligatoire...)
 
-# Création de la box
+## Création de la box
 
 Une box est en fait une archive contenant :
 * un export de VM au format VirtualBox
@@ -154,7 +154,7 @@ On utilise la commande *vagrant package*, qui permet de créer l'archive au bon 
 {% endhighlight %}
 
 
-# Utilisation de la box
+## Utilisation de la box
 
 Avant d'utilier la box, il faut l'enregistrer dans la liste des box disponible :
 
@@ -173,7 +173,7 @@ Ensuite, il ne reste plus qu'à démarrer :
 	vagrant up
 	vagrant ssh
 
-# Quelques liens
+## Quelques liens
 
 * Inspiré de [cet article](https://github.com/okfn/ckan/wiki/How-to-Create-a-CentOS-Vagrant-Base-Box)
 * [www.vagrantup.com](http://www.vagrantup.com)

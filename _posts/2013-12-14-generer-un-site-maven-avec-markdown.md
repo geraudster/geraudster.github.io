@@ -11,11 +11,11 @@ Maven permet d'embarquer de la documentation au sein d'un projet. Le plugin mave
 
 Cet article décrit comment réaliser cette tâche.
 
-# Pré-requis
+## Pré-requis
 
 Il vous faudra Maven en version 3.1.1 (il peut y avoir quelques soucis sur les versions antérieures).
 
-# Initialisation du projet
+## Initialisation du projet
 
 Nous allons générer un squelette de base à l'aide du plugin archetype :
 
@@ -72,7 +72,7 @@ Vous obtenez alors un beau projet Maven prêt à compiler :
 
 Jusque là tout va bien, nous pouvons passer à la suite.
 
-# Configuration des dépendances
+## Configuration des dépendances
 
 Au niveau du fichier pom.xml, il faut ajouter plusieurs dépendances afin d'utiliser
 Markdown lors de la génération du site.
@@ -98,9 +98,9 @@ Markdown lors de la génération du site.
     </build>
 {% endhighlight %}
 
-# Création du site
+## Création du site
 
-## Initialisation de l'arborescence
+### Initialisation de l'arborescence
 
 Maintenant, il reste à créer le site. Pour rappel, l'emplacement par défaut des fichiersconsituant le site doi se trouver dans src/site.
 
@@ -131,14 +131,14 @@ Ce répertoire doit contenir un fichier site.xml décrivant la structure du site
 {% endhighlight %}
 
 
-## Ajouter du contenu
+### Ajouter du contenu
 
 On crée ensuite le contenu, ici 2 fichiers Markdown (page1.md et page2.md) à placer dans le répertoire src/site/markdown.
 
 Voici le contenu de page1.md :
 
 {% highlight text %}
-## Présentation
+### Présentation
 
 Ceci est un site écrit en Markdown et généré par Maven
 
@@ -146,7 +146,7 @@ Ceci est un site écrit en Markdown et généré par Maven
 * Deuxième Item
 * Troisième Item
 
-## Une autre partie
+### Une autre partie
 
 On peut même faire des tableaux :
 
@@ -158,7 +158,7 @@ On peut même faire des tableaux :
 
 Petite remarque sur le nommage des fichiers : au niveau du site.xml, il faut faire référence au fichier html (page1.html) et non au fichier markdown (page1.md).
 
-## Générer le site
+### Générer le site
 
 Il ne reste plus qu'à générer le site avec maven avec :
 

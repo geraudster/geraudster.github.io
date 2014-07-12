@@ -23,7 +23,7 @@ At the moment, I was working on Neo4j 2.0.0, java 1.7 (with default settings). T
 Transaction is committed every 10'000 elements.
 I also maintain a map of users and movies, this map is used during relationships creation.
 
-# First try to import 1M
+## First try to import 1M
 
 Here the transaction is committed every 100'000 elements.
 First launch gives this:
@@ -47,7 +47,7 @@ Let's tune the jvm options with -Xms2g -Xmx2g :
 
 It's going a little bit further, but not very satisfying.
 
-# Second try
+## Second try
 
 I know that Neo4j can do much better, and the solution was [BatchInserters](http://docs.neo4j.org/chunked/stable/batchinsert-db.html).
 BatchInserters is a factory that provides GraphDatabaseService implementation, so you can use it without changing your code (or at least the
@@ -86,7 +86,7 @@ Next, let's find similar ratings of user 2433 :
 
 ![Query 2](/images/neo4j/query2.png)
 
-# Get even more data !!!
+## Get even more data !!!
 
 So we can now try to import the full dataset (10M ratings). Let's go :
 
@@ -111,7 +111,7 @@ So we can now try to import the full dataset (10M ratings). Let's go :
 
 Nice !!
 
-# To conclude
+## To conclude
 
 Using Java API to import data can be very useful when you cannot (or don't want) to generate your own Cypher script or use CSV import.
 The Batch Graph Database is very good for large data import in Neo4j, but beware that during a batch import, no one else can

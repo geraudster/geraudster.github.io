@@ -18,7 +18,7 @@ Deux types de sites sont proposés :
 
 Nous allons nous intéresser au 2nd type.
 
-# Configuration du projet sous Github
+## Configuration du projet sous Github
 
 1. Créer un repository portant le nom *votre username*.github.io
 2. Accéder aux préférences du repository :
@@ -41,7 +41,7 @@ Le site est désormais initialisé, son contenu peut-être récupéré par un :
 
     git clone https://*votre username*@github.com/*votre username*/*votre username*.github.io.git
 
-# Installer Jekyll en local
+## Installer Jekyll en local
 
 Pour quoi faire ? Cela va nous permettre de prévisualier le rendu du site avant de 'pusher'
 le tout.
@@ -56,7 +56,7 @@ Ensuite :
 
 Voilà, c'est tout :)
 
-# Initialiser le site avec Jekyll
+## Initialiser le site avec Jekyll
 
 Une fois Jekyll installé, initialiser l'arborescence du site:
 
@@ -69,7 +69,7 @@ Lancer Jekyll :
 
 Ouvrir un navigateur à l'url http://localhost:4000/
 
-# Arborescence d'un site
+## Arborescence d'un site
 
 Une arborescence reconnue par Jekyll ressemble à :
 
@@ -123,7 +123,7 @@ AAAA-MM-JJ-\[nom de l'article\].\[format\]
 * tout le reste (javascripts, stylesheets, images...) est copié tel quel dans le répertoire
 ``_site``
 
-# Que mettre dans son .gitignore ?
+## Que mettre dans son .gitignore ?
 
 En gros, tout ce qui est généré par Jekyll, donc le répertoire ``_site``.
 

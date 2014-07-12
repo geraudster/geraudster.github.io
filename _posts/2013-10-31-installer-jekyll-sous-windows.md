@@ -10,7 +10,7 @@ share: true
 Après l'install facile sous Linux, voici la version un peu plus compliquée pour Windows.
 Ça peut dépanner dans certaines circonstances.
 
-# Installer Python
+## Installer Python
 
 Récupérer un exe sur http://www.python.org/download/releases/2.7.5/.
 Et installer le package.
@@ -19,12 +19,12 @@ Ensuite:
 
 	set PATH=D:\apps\Python-2.7;%PATH%
 	
-# Installer Ruby
+## Installer Ruby
 
 Récupérer l'exe ici : http://rubyinstaller.org/downloads/ (prendre une version 1.9.3)
 L'installer.
 
-# Installer le DevKit
+## Installer le DevKit
 
 	ruby dk.rb init
 
@@ -40,7 +40,7 @@ Tester l'install :
 Cela doit donner 42 comme résultat...
 C'est l'option --platform=ruby qui permet d'utiliser le DevKit pour l'installation de gems.
 
-# Installer Jekyll
+## Installer Jekyll
 
 	gem install jekyll --platform=ruby
 
@@ -48,9 +48,9 @@ Démarrer Jekyll :
 
 	jekyll serve
 
-# Résolution des problèmes
+## Résolution des problèmes
 
-## Problème d'UTF-8
+### Problème d'UTF-8
 
 Si vous avez l'erreur suivante :
 
@@ -64,7 +64,7 @@ Il faut forcer ruby à utiliser l'UTF-8, pour cela, il faut modifier le fichier 
 	:WinNT
 	@"ruby.exe" -E UTF-8 "%~dpn0" %*
 
-## Problème de version de pygments
+### Problème de version de pygments
 
 Si vous avez l'erreur suivante :
 
@@ -75,7 +75,7 @@ C'est un problème de version de pygment, il faut désinstaller la version en co
 	gem uninstall pygments.rb --version "=0.5.2"
 	gem install pygments.rb --version "=0.5.0"
 
-## Problème de python introuvable
+### Problème de python introuvable
 
 Si vous avez l'erreur suivante :
 

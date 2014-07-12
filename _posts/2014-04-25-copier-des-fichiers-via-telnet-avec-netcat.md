@@ -12,12 +12,12 @@ La principale utilisation est de fournir des sessions Telnet auxquelles on s'ide
 C'est notamment utilisé dans le monde de l'embarqué pour se connecter au matériel et avoir accès à des commandes, des logs...
 Le problème est qu'il arrive un moment où on a besoin de transférer des fichiers (pour récupérer un fichier de logs par exemple) mais les clients Telnet classiques ne le permettent pas. C'est là qu'arrive [netcat](http://nc110.sourceforge.net/) (nc), qui va permettre de scripter sur des connexions Telnet (notamment)
 
-# Qu'est-ce donc que Netcat ?
+## Qu'est-ce donc que Netcat ?
 
 Netcat est un petit utilitaire sous Unix qui permet de lire et d'envoyer des données sur le réseau.
 En gros, il va permettre un fonctionnement soit en mode serveur (il existe des exemples d'implémentation de serveur HTTP ou de chat avec nc) soit en mode client (là encore les usages sont variés comme l'envoi de mails, l'utilisation comme client HTTP...) et d'envoyer ou recevoir des données. Dans le cas de la copie via le protocole Telnet, nous allons nous intéresser au fonctionnement en mode client.
 
-# Scripter Telnet
+## Scripter Telnet
 
 À l'inverse du protocole SSH, Telnet ne permet pas de copier nativement des fichiers (du  moins à ma connaissance). Telnet vise à fournir une console interactive sur un serveur distant.
 Mais si on souhaite automatiser certaines tâches, telle que la récupération d'un fichier, il faut passer par du scripting.
@@ -63,7 +63,7 @@ Connection closed by foreign host.
 Telnet envoie le login avant d'avoir obtenu la mire de login...
 Heureusement Netcat est là.
 
-# Scriptons avec Netcat
+## Scriptons avec Netcat
 
 ![Netcat](http://cdn.memegenerator.net/instances/500x/48996187.jpg)
 
@@ -99,7 +99,7 @@ Hello toto
 $
 {% endhighlight %}
 
-# Création du script
+## Création du script
 
 Vous trouverez dans ce [gist](https://gist.github.com/geraudster/11290152#file-telcp), le script *telcp* qui regroupe toutes ces commandes afin de proposer une interface similaire à scp:
 {% highlight console %}
