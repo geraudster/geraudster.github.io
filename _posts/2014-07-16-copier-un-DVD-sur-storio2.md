@@ -9,7 +9,6 @@ share: true
 
 Ce post vise à décrire comment convertir un DVD pour le transférer sur la tablette
 [Storio 2 ](http://www.vtech-jouets.com/vtech-et-vous/manuels/storio2.html).
-
 Ayant eu des difficultés pour réaliser cette tâche en une étape, cela va finalement
 se passer en 2 étapes:
 
