@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Copier un DVD sur une tablette VTech Storio2
-tags: dvd video ffmpeg ubuntu vtech storio2
+tags: dvd video avconv ffmpeg ubuntu vtech storio2
 comments: true
 tracking: true
 share: true
@@ -37,7 +37,7 @@ Suite aux différentes mises à jour de la tablette, il s'avère que le format
 AVI avec encodage video h264 n'est plus supporté. Il faut donc utiliser le
 format MJPEG.
 
-Ici, nous allons passer en ligne de commande et utiliser ffmpeg. Vous trouverez une explication du fonctionnement de ffmpeg sur ce [blog](http://www.jcartier.net/spip.php?article57)/
+Ici, nous allons passer en ligne de commande et utiliser avconv (un fork de ffmpeg dont il est encore très proche). Vous trouverez une explication du fonctionnement de ffmpeg sur ce [blog](http://www.jcartier.net/spip.php?article57).
 
 Ci-dessous, la commande utilisée pour convertir en format MJPEG:
 
