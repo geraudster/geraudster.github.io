@@ -1,3 +1,12 @@
+---
+layout: post
+title: Déboires avec Ubuntu 14.04 LTS
+tags: ubuntu tips
+comments: true
+tracking: true
+share: true
+---
+
 ## Problèmes avec le wifi
 
 Après une mise à jour de 13.10 à 14.04, le réseau Wifi habituel n'est plus reconnu. Il faut supprimer les drivers propriétaires:
@@ -37,8 +46,8 @@ Dans dmesg:
 
 Voir: 
 
-* https://bugs.freedesktop.org/show_bug.cgi?id=81537
-* https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1343543
+* [Bug kernel](https://bugs.freedesktop.org/show_bug.cgi?id=81537)
+* [Bug Ubuntu](https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1343543)
 
 ## Liens
 
