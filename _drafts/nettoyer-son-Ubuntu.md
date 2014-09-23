@@ -12,6 +12,9 @@ Suppression des dépendances inutilisées:
 
 	sudo apt-get autoremove
 
+Suppression des packages de debug:
+
+	sudo apt-get remove .*-dbg
 ## Nettoyage des anciens noyaux
 
 Utiliser Ubuntu Tweak
