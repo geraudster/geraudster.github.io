@@ -382,11 +382,18 @@ nav {
   }
 }
 
+.license {
+	float: left;
+	height: 50px;
+	width: 85%;
+	margin: 0 10px;
+}
+
 .social {
 	float: right;
 	display: block;
 	height: 50px;
-	width: 100px;
+	width: 15%;
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
