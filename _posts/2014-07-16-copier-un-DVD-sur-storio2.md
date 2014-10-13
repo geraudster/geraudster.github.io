@@ -19,12 +19,11 @@ se passer en 2 étapes:
 
 ![OGMRip](/images/storio/ogmrip.png)
 Ripper le DVD, ça y est, le gros mot est lâché. On utilisera OGMRip sous Ubuntu pour
-ripper le DVD. Il a l'avantage d'être simple à utilisere et de proposer des profils par défaut.
+ripper le DVD. Il a l'avantage d'être simple à utiliser et de proposer des profils par défaut.
 
 1. Lancer OGMRip
-2. Charger le DVD : 
+2. Charger le DVD :                                 
 ![OGMRip - choix DVD](/images/storio/ogmrip_01.png)
-
 3. Lancer l'extraction et sélectionner le profil :  
 ![OGMRip - choix profil](/images/storio/ogmrip_02.png)
 

@@ -31,7 +31,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+	list-style: inside none;
 }
 blockquote, q {
 	quotes: none;
@@ -90,7 +90,7 @@ header h2 {
 }
 
 .inner {
-  width: 620px;
+  width: 55%;
   margin: 0 auto;
 }
 
@@ -277,6 +277,7 @@ h6 {
 p {
   font-weight: 300;
   margin-bottom: 20px;
+  text-align: justify;
 }
  
 a {
@@ -295,12 +296,12 @@ blockquote {
 }
 
 ul li {
-  list-style: disc;
+  list-style: disc inside;
   padding-left: 20px;
 }
 
 ol li {
-  list-style: decimal;
+  list-style: decimal inside;
   padding-left: 3px;
 }
 
