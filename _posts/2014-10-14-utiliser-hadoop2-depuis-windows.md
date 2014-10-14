@@ -67,10 +67,10 @@ il va falloir recompiler...
 ## Récupération et compilation des sources
 
 Récupérer les sources depuis les sites [Apache](http://www.apache.org/dyn/closer.cgi/hadoop/common/) et les 
-décompresser dans un répertoires dont le nom est cours (pour éviter les problèmes de builds dus à des noms de
+décompresser dans un répertoires dont le nom est court (pour éviter les problèmes de builds dus à des noms de
 fichiers trop longs), idéalement un répertoire du genre `c:\hdp` fera l'affaire.
 
-Lancer un prompt Microsoft SDK depuis le menu démarrer, puis:
+Lancer un prompt Microsoft SDK depuis le menu Démarrer, puis:
 
 {% highlight console %}
 set JAVA_HOME=c:\jdk
