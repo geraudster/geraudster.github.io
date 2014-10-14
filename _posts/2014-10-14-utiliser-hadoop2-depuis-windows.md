@@ -17,7 +17,7 @@ pas fournis, il est nécessaire de recompiler les sources d'Hadoop pour les obte
 Si vous tentez d'exécuter des jobs mapreduce en local sur votre poste Windows, vous allez sans doute tomber sur ce genre 
 d'erreur:
 
-{% highlight console %}
+{% highlight java %}
 [ERROR]: org.apache.hadoop.util.Shell - Failed to locate the winutils binary in the hadoop binary path
 java.io.IOException: Could not locate executable null\bin\winutils.exe in the Hadoop binaries.
 at org.apache.hadoop.util.Shell.getQualifiedBinPath(Shell.java:318)
@@ -72,7 +72,7 @@ fichiers trop longs), idéalement un répertoire du genre `c:\hdp` fera l'affair
 
 Lancer un prompt Microsoft SDK depuis le menu Démarrer, puis:
 
-{% highlight console %}
+{% highlight bat %}
 set JAVA_HOME=c:\jdk
 set MAVEN_HOME=c:\mvn
 set PROTOB_HOME=c:\protob
