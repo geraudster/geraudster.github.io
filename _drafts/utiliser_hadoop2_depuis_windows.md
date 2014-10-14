@@ -12,6 +12,8 @@ pas fournis, il est nécessaire de recompiler les sources d'Hadoop pour les obte
 
 ## Problème
 
+![Hadoop + Windows](/images/hadoop/hadoop-windows.png)
+
 Si vous tentez d'exécuter des jobs mapreduce en local sur votre poste Windows, vous allez sans doute tomber sur ce genre 
 d'erreur:
 
