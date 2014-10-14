@@ -2,3 +2,5 @@ name: System.out
 description: Blog d'un consultant sur un peu de tout et surtout du Java, JavaEE, Machine Learning, Neo4j et peut-être aussi du Clojure...
 url: http://geraudster.github.io
 markdown: kramdown
+gems:
+    - jekyll-sitemap
