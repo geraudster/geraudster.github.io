@@ -1,3 +1,12 @@
+---
+layout: post
+title: Nettoyer Ubuntu en ligne de commande
+tags: ubuntu admin
+comments: true
+tracking: true
+share: true
+---
+
 ## Nettoyage d'apt
 
 Suppression des paquets partiels:
@@ -15,9 +24,12 @@ Suppression des dépendances inutilisées:
 Suppression des packages de debug:
 
 	sudo apt-get remove .*-dbg
+
 ## Nettoyage des anciens noyaux
 
-Utiliser Ubuntu Tweak
+Merci à StackOverflow:
+
+	sudo apt-get remove --purge $(dpkg -l 'linux-image-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d')
 
 ## Suppression des fichiers de configuration inutilisés
 
