@@ -35,6 +35,10 @@ Merci à StackOverflow:
 
 	sudo aptitude purge ?config-files
 
+## Suppression des connexions réseaux
+
+	nmcli --fields UUID,TIMESTAMP-REAL c list | grep never | cut -f1 -d ' ' | xargs -n 1 nmcli c delete uuid
+
 ## Liens
 
 * Debian Cleanup : http://raphaelhertzog.com/2011/01/31/debian-cleanup-tip-1-get-rid-of-useless-configuration-files/
