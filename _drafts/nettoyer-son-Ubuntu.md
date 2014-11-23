@@ -37,7 +37,14 @@ Merci à StackOverflow:
 
 ## Suppression des connexions réseaux
 
+Suppression des connexions jamais utilisées:
+
 	nmcli --fields UUID,TIMESTAMP-REAL c list | grep never | cut -f1 -d ' ' | xargs -n 1 nmcli c delete uuid
+
+Suppression des connexions non utilisées depuis un certain temps (modifier la date 2014-01-01 selon vos besoins) :
+
+	LANG=C nmcli --fields UUID,TIMESTAMP-REAL c list | dateutils.dgrep --lt '2014-01-01' -i "%a %b %d %T %Y" | cut -f1 -d ' ' | xargs -n 1 nmcli c delete uuid
+
 
 ## Liens
 
